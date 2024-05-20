@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title id="title">Random Number Generator</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1 id="header-title">Random Number Generator</h1>
+        <div class="generator-output-container">
+            <form id="number-form" class="generator">
+                <div class="controls">
+                    <fieldset>
+                        <legend id="legend-quantity">Numbers to generate</legend>
+                        <input type="number" id="quantity" min="1" value="10" required>
+                    </fieldset>
+                    <fieldset>
+                        <legend id="legend-min">Minimum number</legend>
+                        <input type="number" id="min" min="1" value="1" required>
+                    </fieldset>
+                    <fieldset>
+                        <legend id="legend-max">Maximum number</legend>
+                        <input type="number" id="max" min="1" value="49" required>
+                    </fieldset>
+                    <fieldset>
+                        <legend id="legend-sort">Sort</legend>
+                        <select id="sort" title="Sort the generated numbers">
+                            <option value="false" id="sort-no">No</option>
+                            <option value="true" id="sort-yes">Yes</option>
+                        </select>
+                    </fieldset>
+                    <fieldset>
+                        <legend id="legend-unique">Unique</legend>
+                        <select id="unique" title="Generate unique numbers">
+                            <option value="false" id="unique-no">No</option>
+                            <option value="true" id="unique-yes">Yes</option>
+                        </select>
+                    </fieldset>
+                    <button type="submit" id="generate-button">Generate</button>
+                </div>
+            </form>
+            <div class="output">
+                <h2 id="output-title">Generated Numbers:</h2>
+                <div id="result"></div>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <span id="language-label">Language:</span>
+        <button id="lang-en" class="lang-button" data-lang="en">
+            <img src="https://flagicons.lipis.dev/flags/4x3/gb.svg" alt="English">
+        </button>
+        <button id="lang-pl" class="lang-button" data-lang="pl">
+            <img src="https://flagicons.lipis.dev/flags/4x3/pl.svg" alt="Polish">
+        </button>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>

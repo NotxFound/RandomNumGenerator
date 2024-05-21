@@ -1,3 +1,5 @@
+let Language = 'en';
+
 document.getElementById('number-form').addEventListener('submit', function(e) {
     e.preventDefault();
 
@@ -7,13 +9,14 @@ document.getElementById('number-form').addEventListener('submit', function(e) {
     const canRepeat = document.getElementById('unique').value === 'false';
     const sort = document.getElementById('sort').value === 'true';
 
+
     const resultContainer = document.getElementById('result');
 
     if (min > max) {
         resultContainer.textContent = translations[currentLang].invalidRange;
         return;
     }
-
+    
     if (!canRepeat && quantity > (max - min + 1)) {
         resultContainer.textContent = translations[currentLang].invalidRequest;
         return;
@@ -50,9 +53,6 @@ function formatNumbers(numbers) {
     return numbers.join(', ');
 }
 
-// // // // // // // // 
-// Translation Code
-// // // // // // // // 
 
 let translations = {};
 
@@ -69,21 +69,23 @@ document.querySelectorAll('.lang-button').forEach(button => {
     });
 });
 
-function translatePage(currentLang) {
-    document.getElementById('header-title').textContent = translations[currentLang].headerTitle;
-    document.getElementById('legend-quantity').textContent = translations[currentLang].legendQuantity;
-    document.getElementById('legend-min').textContent = translations[currentLang].legendMin;
-    document.getElementById('legend-max').textContent = translations[currentLang].legendMax;
-    document.getElementById('legend-sort').textContent = translations[currentLang].legendSort;
-    document.getElementById('sort-no').textContent = translations[currentLang].sortNo;
-    document.getElementById('sort-yes').textContent = translations[currentLang].sortYes;
-    document.getElementById('legend-unique').textContent = translations[currentLang].legendUnique;
-    document.getElementById('unique-no').textContent = translations[currentLang].uniqueNo;
-    document.getElementById('unique-yes').textContent = translations[currentLang].uniqueYes;
-    document.getElementById('generate-button').textContent = translations[currentLang].generateButton;
-    document.getElementById('output-title').textContent = translations[currentLang].outputTitle;
-    document.getElementById('sort').title = translations[currentLang].sortTitle;
-    document.getElementById('unique').title = translations[currentLang].uniqueTitle;
+function translatePage(Language) {
+    currentLang = Language;
+    document.getElementById('header-title').textContent = translations[Language].headerTitle;
+    document.getElementById('legend-quantity').textContent = translations[Language].legendQuantity;
+    document.getElementById('legend-min').textContent = translations[Language].legendMin;
+    document.getElementById('legend-max').textContent = translations[Language].legendMax;
+    document.getElementById('legend-sort').textContent = translations[Language].legendSort;
+    document.getElementById('sort-no').textContent = translations[Language].sortNo;
+    document.getElementById('sort-yes').textContent = translations[Language].sortYes;
+    document.getElementById('legend-unique').textContent = translations[Language].legendUnique;
+    document.getElementById('unique-no').textContent = translations[Language].uniqueNo;
+    document.getElementById('unique-yes').textContent = translations[Language].uniqueYes;
+    document.getElementById('generate-button').textContent = translations[Language].generateButton;
+    document.getElementById('output-title').textContent = translations[Language].outputTitle;
+    document.getElementById('sort').title = translations[Language].sortTitle;
+    document.getElementById('unique').title = translations[Language].uniqueTitle;
 }
 
 loadLanguage();
+

@@ -10,12 +10,12 @@ document.getElementById('number-form').addEventListener('submit', function(e) {
     const resultContainer = document.getElementById('result');
 
     if (min > max) {
-        resultContainer.textContent = 'Invalid range: min should be less than or equal to max.';
+        resultContainer.textContent = translations[currentLang].invalidRange;
         return;
     }
 
     if (!canRepeat && quantity > (max - min + 1)) {
-        resultContainer.textContent = 'Invalid request: not enough unique numbers in the specified range.';
+        resultContainer.textContent = translations[currentLang].invalidRequest;
         return;
     }
 
@@ -23,7 +23,8 @@ document.getElementById('number-form').addEventListener('submit', function(e) {
     if (sort) {
         numbers.sort((a, b) => a - b);
     }
-    resultContainer.textContent = numbers.join(', ');
+
+    resultContainer.innerHTML = formatNumbers(numbers);
 });
 
 function generateRandomNumbers(quantity, min, max, canRepeat) {
@@ -45,39 +46,21 @@ function generateRandomNumbers(quantity, min, max, canRepeat) {
     return numbers;
 }
 
-// Language JSON file
-const translations = {
-    en: {
-        title: "Random Number Generator",
-        headerTitle: "Random Number Generator",
-        legendQuantity: "Numbers to generate",
-        legendMin: "Minimum number",
-        legendMax: "Maximum number",
-        legendSort: "Sort",
-        sortNo: "No",
-        sortYes: "Yes",
-        legendUnique: "Unique",
-        uniqueNo: "No",
-        uniqueYes: "Yes",
-        generateButton: "Generate",
-        outputTitle: "Generated Numbers:",
-    },
-    pl: {
-        title: "Generator Liczb Losowych",
-        headerTitle: "Generator Liczb Losowych",
-        legendQuantity: "Liczby do wygenerowania",
-        legendMin: "Minimalna liczba",
-        legendMax: "Maksymalna liczba",
-        legendSort: "Sortuj",
-        sortNo: "Nie",
-        sortYes: "Tak",
-        legendUnique: "Unikalne",
-        uniqueNo: "Nie",
-        uniqueYes: "Tak",
-        generateButton: "Generuj",
-        outputTitle: "Wygenerowane liczby:",
-    }
-};
+function formatNumbers(numbers) {
+    return numbers.join(', ');
+}
+
+// // // // // // // // 
+// Translation Code
+// // // // // // // // 
+
+let translations = {};
+
+async function loadLanguage() {
+    const response = await fetch('language.json');
+    translations = await response.json();
+    translatePage('en');
+}
 
 document.querySelectorAll('.lang-button').forEach(button => {
     button.addEventListener('click', () => {
@@ -86,21 +69,21 @@ document.querySelectorAll('.lang-button').forEach(button => {
     });
 });
 
-function translatePage(lang) {
-    document.getElementById('title').textContent = translations[lang].title;
-    document.getElementById('header-title').textContent = translations[lang].headerTitle;
-    document.getElementById('legend-quantity').textContent = translations[lang].legendQuantity;
-    document.getElementById('legend-min').textContent = translations[lang].legendMin;
-    document.getElementById('legend-max').textContent = translations[lang].legendMax;
-    document.getElementById('legend-sort').textContent = translations[lang].legendSort;
-    document.getElementById('sort-no').textContent = translations[lang].sortNo;
-    document.getElementById('sort-yes').textContent = translations[lang].sortYes;
-    document.getElementById('legend-unique').textContent = translations[lang].legendUnique;
-    document.getElementById('unique-no').textContent = translations[lang].uniqueNo;
-    document.getElementById('unique-yes').textContent = translations[lang].uniqueYes;
-    document.getElementById('generate-button').textContent = translations[lang].generateButton;
-    document.getElementById('output-title').textContent = translations[lang].outputTitle;
+function translatePage(currentLang) {
+    document.getElementById('header-title').textContent = translations[currentLang].headerTitle;
+    document.getElementById('legend-quantity').textContent = translations[currentLang].legendQuantity;
+    document.getElementById('legend-min').textContent = translations[currentLang].legendMin;
+    document.getElementById('legend-max').textContent = translations[currentLang].legendMax;
+    document.getElementById('legend-sort').textContent = translations[currentLang].legendSort;
+    document.getElementById('sort-no').textContent = translations[currentLang].sortNo;
+    document.getElementById('sort-yes').textContent = translations[currentLang].sortYes;
+    document.getElementById('legend-unique').textContent = translations[currentLang].legendUnique;
+    document.getElementById('unique-no').textContent = translations[currentLang].uniqueNo;
+    document.getElementById('unique-yes').textContent = translations[currentLang].uniqueYes;
+    document.getElementById('generate-button').textContent = translations[currentLang].generateButton;
+    document.getElementById('output-title').textContent = translations[currentLang].outputTitle;
+    document.getElementById('sort').title = translations[currentLang].sortTitle;
+    document.getElementById('unique').title = translations[currentLang].uniqueTitle;
 }
 
-// Initialize the page with English language
-translatePage('en');
+loadLanguage();

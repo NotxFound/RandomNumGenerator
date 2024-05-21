@@ -1,0 +1,36 @@
+{
+    "en": {
+        "title": "Random Number Generator",
+        "headerTitle": "Random Number Generator",
+        "legendQuantity": "Numbers to generate",
+        "legendMin": "Minimum number",
+        "legendMax": "Maximum number",
+        "legendSort": "Sort",
+        "sortNo": "No",
+        "sortYes": "Yes",
+        "legendUnique": "Unique",
+        "uniqueNo": "No",
+        "uniqueYes": "Yes",
+        "generateButton": "Generate",
+        "outputTitle": "Generated Numbers:",
+        "sortTitle": "Sort the generated numbers",
+        "uniqueTitle": "Generate only unique numbers"
+    },
+    "pl": {
+        "title": "Generator Liczb Losowych",
+        "headerTitle": "Generator Liczb Losowych",
+        "legendQuantity": "Liczby do wygenerowania",
+        "legendMin": "Minimalna liczba",
+        "legendMax": "Maksymalna liczba",
+        "legendSort": "Sortuj",
+        "sortNo": "Nie",
+        "sortYes": "Tak",
+        "legendUnique": "Unikalne",
+        "uniqueNo": "Nie",
+        "uniqueYes": "Tak",
+        "generateButton": "Generuj",
+        "outputTitle": "Wygenerowane liczby:",
+        "sortTitle": "Sortuj wygenerowane liczby",
+        "uniqueTitle": "Generuj tylko unikalne liczby"
+    }
+}

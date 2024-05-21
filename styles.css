@@ -7,7 +7,8 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    min-height: 100vh;
+    overflow-x: hidden;
 }
 
 h1 {
@@ -80,18 +81,17 @@ button#generate-button:hover {
 }
 
 #result {
-    word-wrap: break-word;
     text-align: left;
     max-height: 250px;
     overflow-y: auto;
-    scrollbar-color: rgb(53, 53, 53) rgb(19, 19, 19);
-    scrollbar-width: thin;
+    overflow-wrap: break-word;
     background-color: #2e2e2e;
     padding: 10px;
-    border-radius: 0 0 0 0;
     border: 1px solid #444;
-    width: 100%;
-    box-sizing: border-box;
+    word-wrap: break-word;
+    white-space: normal;
+    scrollbar-color: rgb(109, 109, 109) rgb(19, 19, 19);
+    scrollbar-width: thin;
 }
 
 /* Chrome, Safari, Edge, Opera */
@@ -104,19 +104,6 @@ input::-webkit-inner-spin-button {
 /* Firefox */
 input[type=number] {
     -moz-appearance: textfield;
-}
-
-/* Media query for smaller screens */
-@media (max-width: 500px) {
-    .generator-output-container {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .generator, .output {
-        width: 85vw;
-        height: auto;
-    }
 }
 
 footer {
@@ -142,4 +129,16 @@ footer {
 .lang-button img {
     width: 30px;
     height: 20px;
+}
+
+@media (max-width: 500px) {
+    .generator-output-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .generator, .output {
+        width: 85vw;
+        height: auto;
+    }
 }

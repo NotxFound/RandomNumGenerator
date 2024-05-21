@@ -83,7 +83,8 @@ button#generate-button:hover {
 #result {
     text-align: left;
     max-height: 250px;
-    overflow-y: auto;
+    overflow-y: scroll;
+    overflow-x: hidden;
     overflow-wrap: break-word;
     background-color: #2e2e2e;
     padding: 10px;

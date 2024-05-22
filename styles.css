@@ -8,34 +8,27 @@ body {
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    overflow-x: hidden;
+    min-width: 320px;
 }
 
 h1 {
     text-align: center;
-    padding: 0 10px;
+    padding: 0 20px;
 }
 
-.container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.generator-output-container {
+.generator-output-container { 
     display: flex;
     justify-content: center;
-    align-items: flex-start;
     flex-wrap: wrap;
 }
 
 .generator, .output {
     background-color: #1e1e1e;
-    padding: 20px;
+    padding: 20px 10px;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
     margin: 10px;
-    width: 400px;
+    width: clamp(250px, 85vw, 500px);
     height: 400px;
     text-align: center;
     display: flex;
@@ -83,7 +76,7 @@ button#generate-button:hover {
 #result {
     text-align: left;
     max-height: 250px;
-    overflow-y: scroll;
+    overflow-y: auto;
     overflow-x: hidden;
     overflow-wrap: break-word;
     background-color: #2e2e2e;
@@ -130,16 +123,4 @@ footer {
 .lang-button img {
     width: 30px;
     height: 20px;
-}
-
-@media (max-width: 500px) {
-    .generator-output-container {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .generator, .output {
-        width: 85vw;
-        height: auto;
-    }
 }

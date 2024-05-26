@@ -31,8 +31,6 @@ h1 {
     width: clamp(250px, 85vw, 500px);
     height: 400px;
     text-align: center;
-    display: flex;
-    flex-direction: column;
 }
 
 .controls {
@@ -58,24 +56,25 @@ input, select {
     text-align: center;
 }
 
-button#generate-button {
+button#generate-button,
+button#copy-button {
     cursor: pointer;
     margin-top: 20px;
-    padding: 10px;
+    padding: 15px 20px;
     color: #e0e0e0;
     border: 0;
     border-radius: 5px;
     background-color: rgb(52, 89, 194);
-    width: 100%;
 }
 
-button#generate-button:hover {
+button#generate-button:hover,
+button#copy-button:hover {
     background-color: rgb(34, 67, 158);
 }
 
 #result {
     text-align: left;
-    max-height: 250px;
+    max-height: 245px;
     overflow-y: auto;
     overflow-x: hidden;
     overflow-wrap: break-word;

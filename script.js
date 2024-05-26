@@ -1,5 +1,3 @@
-let currentLang;
-
 document.getElementById('number-form').addEventListener('submit', function(e) {
     e.preventDefault();
 
@@ -25,7 +23,7 @@ document.getElementById('number-form').addEventListener('submit', function(e) {
         numbers.sort((a, b) => a - b);
     }
 
-    resultContainer.innerHTML = formatNumbers(numbers);
+    resultContainer.innerHTML = numbers.join(', ');
 });
 
 function generateRandomNumbers(quantity, min, max, canRepeat) {
@@ -47,10 +45,24 @@ function generateRandomNumbers(quantity, min, max, canRepeat) {
     return numbers;
 }
 
-function formatNumbers(numbers) {
-    return numbers.join(', ');
-}
 
+document.getElementById('copy-button').addEventListener('click', function() {
+    const resultContainer = document.getElementById('result');
+    const textToCopy = resultContainer.textContent;
+
+    if (!textToCopy) {
+        alert(translations[currentLang].nothingToCopy);
+        return;
+    }
+
+    navigator.clipboard.writeText(textToCopy)
+        .then(() => {
+            alert(translations[currentLang].copiedToClipboard);
+        })
+        .catch(err => {
+            alert(translations[currentLang].failedToCopy + err);
+        });
+});
 
 let translations = {};
 
@@ -81,9 +93,7 @@ function translatePage(Language) {
     document.getElementById('unique-yes').textContent = translations[Language].uniqueYes;
     document.getElementById('generate-button').textContent = translations[Language].generateButton;
     document.getElementById('output-title').textContent = translations[Language].outputTitle;
-    document.getElementById('sort').title = translations[Language].sortTitle;
-    document.getElementById('unique').title = translations[Language].uniqueTitle;
+    document.getElementById('copy-button').textContent = translations[Language].copyButton;
 }
 
 loadLanguage();
-

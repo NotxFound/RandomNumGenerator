@@ -12,10 +12,12 @@
         "uniqueYes": "Yes",
         "generateButton": "Generate",
         "outputTitle": "Generated Numbers:",
-        "sortTitle": "Sort the generated numbers",
-        "uniqueTitle": "Generate unique numbers",
         "invalidRange": "Invalid range: min should be less than or equal to max.",
-        "invalidRequest": "Invalid request: not enough unique numbers in the specified range."
+        "invalidRequest": "Invalid request: not enough unique numbers in the specified range.",
+        "copyButton": "Copy",
+        "nothingToCopy": "Nothing to copy!",
+        "copiedToClipboard": "Copied to clipboard!",
+        "failedToCopy": "Failed to copy: "
     },
     "pl": {
         "headerTitle": "Generator Liczb Losowych",
@@ -30,9 +32,11 @@
         "uniqueYes": "Tak",
         "generateButton": "Generuj",
         "outputTitle": "Wygenerowane liczby:",
-        "sortTitle": "Sortuj wygenerowane liczby",
-        "uniqueTitle": "Generuj unikalne liczby",
         "invalidRange": "Nieprawidłowy zakres: min powinno być mniejsze lub równe max.",
-        "invalidRequest": "Nieprawidłowe żądanie: zbyt mało unikalnych liczb w określonym zakresie."
+        "invalidRequest": "Nieprawidłowe żądanie: zbyt mało unikalnych liczb w określonym zakresie.",
+        "copyButton": "Kopiuj",
+        "nothingToCopy": "Brak liczb do skopiowania!",
+        "copiedToClipboard": "Skopiowano do schowka!",
+        "failedToCopy": "Nie udało się skopiować: "
     }
 }

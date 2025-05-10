@@ -1,1 +1,1 @@
-https://notxfound.github.io/RandomNum/
+https://notxfound.github.io/RandomNumGenerator/
